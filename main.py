@@ -1,7 +1,9 @@
 import os
+import smtplib
+
+
 LOGIN = os.environ["LOGIN"]
 PASSWORD = os.environ["PASSWORD"]
-import smtplib
 website = 'https://dvmn.org/referrals/rROk3zOStDIkOgD2CNhYGKMTfWV69TBMC91RzZfo/'
 friend_name = 'Petya'
 subject = "Приглашение!"
@@ -27,5 +29,5 @@ Content-Type: text/plain; charset="UTF-8";
 Регистрируйся → {3}  
 На курсы, которые еще не вышли, можно подписаться и получить уведомление о релизе сразу на имейл""".format(mail,mail1,friend_name,website,my_name)
 letter = letter.encode("UTF-8")
-server.sendmail("devmanorg@yandex.ru", "t.suleymanoff@yandex.ru", letter)
+server.sendmail(mail, mail1, letter)
 server.quit()
